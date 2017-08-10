@@ -1,0 +1,7 @@
+#include "libft.h"
+#include <string.h>
+
+#test memset_check
+	ck_assert_str_eq(
+		ft_memset("Bonjour comment ca va", '$', 10),
+		memset("Bonjour comment ca va", '$', 10));
