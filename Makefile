@@ -15,21 +15,21 @@ OBJ=$(SRC:.c=.o)
 all: $(NAME)
 
 %.o: $(SRCDIR)/%.c
-	$(CC) $(CFLAGS) -c $<
+	@$(CC) $(CFLAGS) -c $<
 
 $(NAME): $(OBJ)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 %.c: %.check
-	checkmk $^ > $@
+	@checkmk $^ > $@
 
 $(BIN): $(CHECKSRC) $(NAME)
-	$(CC) $(CFLAGS) -o $@ $< $(INCLUDES) $(LDFLAGS) $(LDLIB)
+	@$(CC) $(CFLAGS) -o $@ $< $(INCLUDES) $(LDFLAGS) $(LDLIB)
 	rm $(CHECKSRC)
 
 check: $(BIN)
-	./$(BIN)
+	@./$(BIN)
 
 clean:
 	rm -f *.o

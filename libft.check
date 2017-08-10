@@ -2,6 +2,9 @@
 #include <string.h>
 
 #test memset_check
-	ck_assert_str_eq(
-		ft_memset("Bonjour comment ca va", '$', 10),
-		memset("Bonjour comment ca va", '$', 10));
+	char s1[50];
+	char s2[50];
+	strcpy(s1, "Bonjour sAlut 15la");
+	strcpy(s2, s1);
+	ck_assert_str_eq(ft_memset(s1, '$', 5), memset(s2, '$', 5));
+	ck_assert_str_eq(ft_memset(s1, '*', 30), memset(s2, '*', 30));
