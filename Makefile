@@ -9,13 +9,13 @@ SRCDIR=srcs
 BIN=checklib
 CHECKSRC=libft.c
 INCLUDES=-I./
-SRC=ft_memset.c
+SRC=ft_memset.c ft_bzero.c
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
 
 %.o: $(SRCDIR)/%.c
-	@$(CC) $(CFLAGS) -c $<
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $<
 
 $(NAME): $(OBJ)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
@@ -26,7 +26,7 @@ $(NAME): $(OBJ)
 
 $(BIN): $(CHECKSRC) $(NAME)
 	@$(CC) $(CFLAGS) -o $@ $< $(INCLUDES) $(LDFLAGS) $(LDLIB)
-	rm $(CHECKSRC)
+	@rm $(CHECKSRC)
 
 check: $(BIN)
 	@./$(BIN)

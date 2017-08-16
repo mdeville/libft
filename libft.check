@@ -2,9 +2,18 @@
 #include <string.h>
 
 #test memset_check
+	char s1[25];
+	char s2[25];
+	strcpy(s1, "Bonjour sAlut 15la");
+	strcpy(s2, s1);
+	ck_assert_mem_eq(ft_memset(s1, '$', 5), memset(s2, '$', 5), 5);
+	ck_assert_mem_eq(ft_memset(s1, '*', 30), memset(s2, '*', 30), 30);
+
+#test bzero_check
 	char s1[50];
 	char s2[50];
 	strcpy(s1, "Bonjour sAlut 15la");
 	strcpy(s2, s1);
-	ck_assert_str_eq(ft_memset(s1, '$', 5), memset(s2, '$', 5));
-	ck_assert_str_eq(ft_memset(s1, '*', 30), memset(s2, '*', 30));
+	ft_bzero(s1, 10);
+	bzero(s2, 10);
+	ck_assert_mem_eq(s1, s2, 19);
