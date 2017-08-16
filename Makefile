@@ -9,7 +9,7 @@ SRCDIR=srcs
 BIN=checklib
 CHECKSRC=libft.c
 INCLUDES=-I./
-SRC=ft_memset.c ft_bzero.c
+SRC=ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
@@ -36,5 +36,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+cclean: fclean
+	rm -f $(BIN) $(CHECKSRC)
 
 re: fclean $(NAME)

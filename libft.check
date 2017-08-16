@@ -17,3 +17,42 @@
 	ft_bzero(s1, 10);
 	bzero(s2, 10);
 	ck_assert_mem_eq(s1, s2, 19);
+
+#test memcpy_check
+	char s1[50];
+	char s2[50];
+	strcpy(s1, "Bonjour sAlut 15la");
+	ft_memcpy(s2, s1, 10);
+	ck_assert_mem_eq(s1, s2, 10);
+	ft_bzero(s2, 50);
+	ft_memcpy(s2, s1, 0);
+	ck_assert_mem_ne(s1, s2, 50);
+	ft_memcpy(s2, s1, 50);
+	ck_assert_mem_eq(s1, s2, 50);
+
+#test memccpy_check
+	char s1[50];
+	char s2[50];
+	strcpy(s1, "Bonjour sAlut 15la");
+	ck_assert_ptr_null(ft_memccpy(s2, s1, '1', 10));
+	ck_assert_mem_eq(s1, s2, 10);
+	ft_bzero(s2, 50);
+	ck_assert_ptr_null(ft_memccpy(s2, s1, '1', 0));
+	ck_assert_mem_ne(s1, s2, 50);
+	ck_assert_ptr_eq(ft_memccpy(s2, s1, '1', 50), s2 + 15);
+	ck_assert_mem_eq(s1, s2, 15);
+
+#test memmove_check
+	char s1[50];
+	char s2[50];
+	strcpy(s1, "memmove can be very useful......");
+	strcpy(s2, "memmove can be very very useful.");
+	ft_memmove(s1 + 20, s1 + 15, 11);
+	ck_assert_str_eq(s1, s2);
+
+#test memchr_check
+	char s1[50];
+	strcpy(s1, "Ma bite mon couteau");
+	ck_assert_ptr_eq(ft_memchr(s1, 'i', 50), memchr(s1, 'i', 50));
+	ck_assert_ptr_null(ft_memchr(s1, 'x', 50));
+	ck_assert_ptr_eq(ft_memchr(s1, 'i', 2), memchr(s1, 'i', 2));
