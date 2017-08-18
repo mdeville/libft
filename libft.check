@@ -4,16 +4,16 @@
 #test memset_check
 	char s1[25];
 	char s2[25];
-	strcpy(s1, "Bonjour sAlut 15la");
-	strcpy(s2, s1);
+	ft_strcpy(s1, "Bonjour sAlut 15la");
+	ft_strcpy(s2, s1);
 	ck_assert_mem_eq(ft_memset(s1, '$', 5), memset(s2, '$', 5), 5);
 	ck_assert_mem_eq(ft_memset(s1, '*', 30), memset(s2, '*', 30), 30);
 
 #test bzero_check
 	char s1[50];
 	char s2[50];
-	strcpy(s1, "Bonjour sAlut 15la");
-	strcpy(s2, s1);
+	ft_strcpy(s1, "Bonjour sAlut 15la");
+	ft_strcpy(s2, s1);
 	ft_bzero(s1, 10);
 	bzero(s2, 10);
 	ck_assert_mem_eq(s1, s2, 19);
@@ -21,7 +21,7 @@
 #test memcpy_check
 	char s1[50];
 	char s2[50];
-	strcpy(s1, "Bonjour sAlut 15la");
+	ft_strcpy(s1, "Bonjour sAlut 15la");
 	ft_memcpy(s2, s1, 10);
 	ck_assert_mem_eq(s1, s2, 10);
 	ft_bzero(s2, 50);
@@ -45,14 +45,14 @@
 #test memmove_check
 	char s1[50];
 	char s2[50];
-	strcpy(s1, "memmove can be very useful......");
-	strcpy(s2, "memmove can be very very useful.");
+	ft_strcpy(s1, "memmove can be very useful......");
+	ft_strcpy(s2, "memmove can be very very useful.");
 	ft_memmove(s1 + 20, s1 + 15, 11);
 	ck_assert_str_eq(s1, s2);
 
 #test memchr_check
 	char s1[50];
-	strcpy(s1, "Ma bite mon couteau");
+	ft_strcpy(s1, "Ma bite mon couteau");
 	ck_assert_ptr_eq(ft_memchr(s1, 'i', 50), memchr(s1, 'i', 50));
 	ck_assert_ptr_null(ft_memchr(s1, 'x', 50));
 	ck_assert_ptr_eq(ft_memchr(s1, 'i', 2), memchr(s1, 'i', 2));
@@ -62,5 +62,27 @@
 	char s2[] = "Bonjour comment ca va bien ?";
 	ck_assert_int_eq(ft_memcmp(s1, s2, 50), memcmp(s1, s2, 50));
 	ck_assert_int_eq(ft_memcmp(s1, s2, 15), memcmp(s1, s2, 15));
-	strcpy(s1, "{");
+	ft_strcpy(s1, "{");
 	ck_assert_int_eq(ft_memcmp(s1, s2, 2), memcmp(s1, s2, 2));
+
+#test strncpy_check
+	char s1[50];
+	char s2[50];
+	ft_strncpy(s1, "Bonjour comment ca va ?", 24);
+	ft_strcpy(s2, "Bonjour comment ca va ?");
+	ck_assert_str_eq(s1, s2);
+	ft_strncpy(s1, "Salut", 10);
+	int i = 0;
+	while (i < 5)
+		ck_assert_int_eq(s1[5 + i++], '\0');
+
+#test strcat_check
+	char s1[50];
+	char s2[50];
+	ft_strcpy(s1, "Ma bite");
+	ft_strcpy(s2, ", mon couteau");
+	ft_strcat(s1, s2);
+	ck_assert_str_eq(s1, "Ma bite, mon couteau");
+	ft_strcpy(s2, "");
+	ft_strcat(s1, s2);
+	ck_assert_str_eq(s1, "Ma bite, mon couteau");
