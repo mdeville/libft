@@ -56,3 +56,11 @@
 	ck_assert_ptr_eq(ft_memchr(s1, 'i', 50), memchr(s1, 'i', 50));
 	ck_assert_ptr_null(ft_memchr(s1, 'x', 50));
 	ck_assert_ptr_eq(ft_memchr(s1, 'i', 2), memchr(s1, 'i', 2));
+
+#test memcmp_check
+	char s1[] = "Bonjour comment ca va ?";
+	char s2[] = "Bonjour comment ca va bien ?";
+	ck_assert_int_eq(ft_memcmp(s1, s2, 50), memcmp(s1, s2, 50));
+	ck_assert_int_eq(ft_memcmp(s1, s2, 15), memcmp(s1, s2, 15));
+	strcpy(s1, "{");
+	ck_assert_int_eq(ft_memcmp(s1, s2, 2), memcmp(s1, s2, 2));
