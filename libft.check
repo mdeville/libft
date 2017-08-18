@@ -86,3 +86,27 @@
 	ft_strcpy(s2, "");
 	ft_strcat(s1, s2);
 	ck_assert_str_eq(s1, "Ma bite, mon couteau");
+
+#test strncat_check
+	char s1[50];
+	char s2[50];
+	ft_strcpy(s1, "Ma bite");
+	ft_strcpy(s2, ", mon couteau");
+	ft_strncat(s1, s2, 20);
+	ck_assert_str_eq(s1, "Ma bite, mon couteau");
+	ft_strcpy(s2, ". Moi j'aime le jambon.");
+	ft_strncat(s1, s2, 15);
+	ck_assert_str_eq(s1, "Ma bite, mon couteau. Moi j'aime le");
+
+
+
+#test strlcat_check
+	char s1[50];
+	char s2[50];
+	ft_strcpy(s1, "Ma bite");
+	ft_strcpy(s2, ", mon couteau");
+	ft_strlcat(s1, s2, sizeof(s1));
+	ck_assert_str_eq(s1, "Ma bite, mon couteau");
+	ft_strcpy(s2, "");
+	ft_strlcat(s1, s2, sizeof(s1));
+	ck_assert_str_eq(s1, "Ma bite, mon couteau");
