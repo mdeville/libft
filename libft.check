@@ -129,3 +129,5 @@
 	ck_assert_ptr_eq(ft_strstr(s1, s2), strstr(s1, s2));
 	ft_strcpy(s2, "Test");
 	ck_assert_ptr_eq(ft_strstr(s1, s2), strstr(s1, s2));
+
+

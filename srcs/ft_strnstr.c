@@ -6,33 +6,36 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 15:15:22 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/20 17:42:03 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/08/20 18:20:49 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	k;
+	size_t	lentmp;
 
+	if (*little == '\0')
+		return ((char *)big);
 	i = 0;
-	while (haystack[i])
+	while (big[i] && len)
 	{
-		if (haystack[i] == needle[0])
+		if (big[i] == little[0])
 		{
 			j = i;
-			k = 0;
-			while (needle[k] && needle[k] == haystack[j])
+			lentmp = len;
+			while (little[j - i] && little[j - i] == big[j] && lentmp)
 			{
 				j++;
-				k++;
+				lentmp--;
 			}
-			if (!needle[k])
-				return ((char *)haystack + i);
+			if (!little[j - i])
+				return ((char *)big + i);
 		}
+		len--;
 		i++;
 	}
 	return (NULL);
