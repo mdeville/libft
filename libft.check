@@ -114,3 +114,18 @@
 	ft_strcpy(s1, "WOW OMG DOGS !!");
 	ck_assert_ptr_eq(ft_strchr(s1, 'S'), strchr(s1, 'S'));
 	ck_assert_ptr_eq(ft_strchr(s1, 'X'), strchr(s1, 'X'));
+
+#test strrchr_check
+	char s1[50];
+	ft_strcpy(s1, "WOW OMG DOGS !!");
+	ck_assert_ptr_eq(ft_strrchr(s1, 'O'), strrchr(s1, 'O'));
+	ck_assert_ptr_eq(ft_strrchr(s1, 'X'), strrchr(s1, 'X'));
+
+#test strstr_check
+	char s1[50];
+	char s2[50];
+	ft_strcpy(s1, "WOW OMG DOGS !!");
+	ft_strcpy(s2, "DOGS");
+	ck_assert_ptr_eq(ft_strstr(s1, s2), strstr(s1, s2));
+	ft_strcpy(s2, "Test");
+	ck_assert_ptr_eq(ft_strstr(s1, s2), strstr(s1, s2));
