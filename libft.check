@@ -130,4 +130,37 @@
 	ft_strcpy(s2, "Test");
 	ck_assert_ptr_eq(ft_strstr(s1, s2), strstr(s1, s2));
 
+#test strcmp_check
+	char s1[50];
+	char s2[50];
+	ft_strcpy(s1, "WOW OMG DOGS");
+	ft_strcpy(s2, "WOW OMG DOGS");
+	ck_assert_int_eq(ft_strcmp(s1, s2), strcmp(s1, s2));
+	ft_strcpy(s1, "WOW OMG DOGS");
+	ft_strcpy(s2, "WOW OMG DOGX");
+	ck_assert_int_eq(ft_strcmp(s1, s2), strcmp(s1, s2));
+	ft_strcpy(s1, "WOW OMG DOGX");
+	ft_strcpy(s2, "WOW OMG DOGS");
+	ck_assert_int_eq(ft_strcmp(s1, s2), strcmp(s1, s2));
+	ft_strcpy(s1, "");
+	ft_strcpy(s2, "WOW OMG DOGS");
+	ck_assert_int_eq(ft_strcmp(s1, s2), strcmp(s1, s2));
 
+#test strncmp_check
+	char s1[50];
+	char s2[50];
+	ft_strcpy(s1, "WOW OMG DOGS");
+	ft_strcpy(s2, "WOW OMG DOGS");
+	ck_assert_int_eq(ft_strncmp(s1, s2, 30), strncmp(s1, s2, 30));
+	ft_strcpy(s1, "WOW OMG DOGS");
+	ft_strcpy(s2, "WOW OMG DOGX");
+	ck_assert_int_eq(ft_strncmp(s1, s2, 30), strncmp(s1, s2, 30));
+	ft_strcpy(s1, "WOW OMG DOGX");
+	ft_strcpy(s2, "WOW OMG DOGS");
+	ck_assert_int_eq(ft_strncmp(s1, s2, 30), strncmp(s1, s2, 30));
+	ft_strcpy(s1, "");
+	ft_strcpy(s2, "WOW OMG DOGS");
+	ck_assert_int_eq(ft_strncmp(s1, s2, 30), strncmp(s1, s2, 30));
+	ft_strcpy(s1, "WOW OMG DOGS");
+	ft_strcpy(s1, "WOW OMG DOGX");
+	ck_assert_int_eq(ft_strncmp(s1, s2, 7), strncmp(s1, s2, 7));
