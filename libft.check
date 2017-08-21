@@ -1,5 +1,5 @@
 #include "libft.h"
-#include <string.h>
+#include <stdlib.h>
 
 #test memset_check
 	char s1[25];
@@ -164,3 +164,14 @@
 	ft_strcpy(s1, "WOW OMG DOGS");
 	ft_strcpy(s1, "WOW OMG DOGX");
 	ck_assert_int_eq(ft_strncmp(s1, s2, 7), strncmp(s1, s2, 7));
+
+#test atoi_check
+	ck_assert_int_eq(ft_atoi("  42"), atoi("  42"));
+	ck_assert_int_eq(ft_atoi("wd42"), atoi("wd42"));
+	ck_assert_int_eq(ft_atoi("+42"), atoi("+42"));
+	ck_assert_int_eq(ft_atoi("-42"), atoi("-42"));
+	ck_assert_int_eq(ft_atoi("42 42"), atoi("42 42"));
+	ck_assert_int_eq(ft_atoi("--42"), atoi("--42"));
+	ck_assert_int_eq(ft_atoi("++42"), atoi("++42"));
+	ck_assert_int_eq(ft_atoi(""), atoi(""));
+
