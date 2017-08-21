@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 14:56:22 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 16:48:37 by mdeville         ###   ########.fr       */
+/*   Created: 2017/08/21 15:30:50 by mdeville          #+#    #+#             */
+/*   Updated: 2017/08/21 15:32:12 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_memalloc(size_t size)
+void	ft_strclr(char *s)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)malloc(size);
-	if (!ptr)
-		return (NULL);
-	while (size)
-	{
-		ptr[size] = 0;
-		size--;
-	}
-	return ((void *)ptr);
+	while (*s)
+		*s++ = '\0';
 }
