@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 15:10:39 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 19:05:49 by mdeville         ###   ########.fr       */
+/*   Created: 2017/08/21 18:33:46 by mdeville          #+#    #+#             */
+/*   Updated: 2017/08/21 19:15:36 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strnew(size_t size)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	return ((char *)ft_memalloc(size + 1));
+	char			*res;
+	unsigned int	i;
+
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (len)
+	{
+		res[i] = s[i + start];
+		len--;
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
 }

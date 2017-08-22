@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 15:10:39 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 19:05:49 by mdeville         ###   ########.fr       */
+/*   Created: 2017/08/21 18:28:01 by mdeville          #+#    #+#             */
+/*   Updated: 2017/08/21 18:30:26 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	return ((char *)ft_memalloc(size + 1));
+	return ((ft_strcmp(s1, s2) == 0) ? 1 : 0);
 }

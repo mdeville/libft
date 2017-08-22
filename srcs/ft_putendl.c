@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 15:10:39 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 19:05:49 by mdeville         ###   ########.fr       */
+/*   Created: 2017/08/22 15:59:43 by mdeville          #+#    #+#             */
+/*   Updated: 2017/08/22 16:01:41 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_putendl(char const *s)
 {
-	return ((char *)ft_memalloc(size + 1));
+	ft_putstr(s);
+	ft_putchar('\n');
 }

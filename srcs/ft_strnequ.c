@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 15:10:39 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 19:05:49 by mdeville         ###   ########.fr       */
+/*   Created: 2017/08/21 18:30:30 by mdeville          #+#    #+#             */
+/*   Updated: 2017/08/21 18:32:18 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	return ((char *)ft_memalloc(size + 1));
+	return ((ft_strncmp(s1, s2, n) == 0) ? 1 : 0);
 }

@@ -175,3 +175,11 @@
 	ck_assert_int_eq(ft_atoi("++42"), atoi("++42"));
 	ck_assert_int_eq(ft_atoi(""), atoi(""));
 
+#test memalloc_check
+	unsigned char *s1 = ft_memalloc(10);
+	int i = 0;
+	while (i < 10)
+	{
+		ck_assert_int_eq(*s1++, 0);
+		i++;
+	}

@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/16 23:45:44 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 19:17:46 by mdeville         ###   ########.fr       */
+/*   Created: 2017/08/21 19:28:25 by mdeville          #+#    #+#             */
+/*   Updated: 2017/08/22 15:33:44 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strtrim(char const *s)
 {
-	size_t	len;
-	size_t	i;
-	char	*res;
+	unsigned int	i;
+	unsigned int	begin;
+	unsigned int	end;
+	int				has_begun;
 
-	len = ft_strlen(s);
-	res = (char *)malloc(sizeof(char) * (len + 1));
-	if (!res)
-		return (NULL);
 	i = 0;
-	while (i < len)
+	begin = 0;
+	end = 0;
+	has_begun = 0;
+	while (s[i])
 	{
-		res[i] = s[i];
+		if (!has_begun && !IS_WS(s[i]))
+		{
+			begin = i;
+			has_begun = 1;
+		}
+		else if (has_begun && IS_WS(s[i]) && !IS_WS(s[i - 1]))
+			end = i;
 		i++;
 	}
-	res[i] = '\0';
-	return (res);
+	if (end == 0)
+		return (ft_strsub(s, begin, ft_strlen(s + begin)));
+	else
+		return (ft_strsub(s, begin, end - begin));
 }

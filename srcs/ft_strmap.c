@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 16:38:09 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 16:55:52 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/08/21 19:19:09 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char			*res;
 
 	i = ft_strlen(s);
-	res = (char *)malloc(sizeof(char) * i);
+	res = (char *)malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
