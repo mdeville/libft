@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 15:06:25 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 15:13:33 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/08/22 20:47:00 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
+	if (!ap)
+		return ;
 	free(*ap);
 	*ap = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 18:39:49 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/20 18:43:18 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/08/23 00:43:16 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		s2++;
 		n--;
 	}
-	return (*s1 - *s2);
+	return ((n == 0) ? 0 : *s1 - *s2);
 }

@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 15:23:49 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 15:25:43 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/08/22 20:39:25 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_strdel(char **as)
 {
-	ft_memdel((void *)as);
+	ft_memdel((void **)as);
 }

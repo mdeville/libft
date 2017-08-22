@@ -176,10 +176,42 @@
 	ck_assert_int_eq(ft_atoi(""), atoi(""));
 
 #test memalloc_check
-	unsigned char *s1 = ft_memalloc(10);
-	int i = 0;
-	while (i < 10)
-	{
-		ck_assert_int_eq(*s1++, 0);
-		i++;
-	}
+	void *s1 = ft_memalloc(10);
+	char s2[50];
+	ft_bzero(s2, 50);
+	ck_assert_mem_eq(s1, s2, 10);
+	ft_memdel(&s1);
+	s1 = ft_memalloc(50);
+	ck_assert_mem_eq(s1, s2, 50);
+
+#test strnew_check
+	char *s1 = ft_strnew(10);
+	char s2[50];
+	ft_bzero(s2, 50);
+	ck_assert_mem_eq(s1, s2, 11);
+	ft_strdel(&s1);
+	s1 = ft_strnew(49);
+	ck_assert_mem_eq(s1, s2, 50);
+
+#test strmap_check
+	char *s1 = ft_strdup("Ma bite, mon couteau !!");
+	char *s2 = ft_strdup("MA BITE, MON COUTEAU !!");
+	char *tmp = s1;
+	s1 = ft_strmap(s1, (char (*)(char))&ft_toupper);
+	free(tmp);
+	ck_assert_str_eq(s1, s2);
+
+#test strequ_check
+	ck_assert_int_eq(ft_strequ("", "ded"), 0);
+	ck_assert_int_eq(ft_strequ("Wowser", "Wowser"), 1);
+	ck_assert_int_eq(ft_strequ("chibre", "ded"), 0);
+
+#test strnequ_check
+	ck_assert_int_eq(ft_strnequ("", "ded", 3), 0);
+	ck_assert_int_eq(ft_strnequ("dwe", "dzz", 3), 0);
+	ck_assert_int_eq(ft_strnequ("dwe", "ded", 1), 1);
+	ck_assert_int_eq(ft_strnequ("ded", "ded", 3), 1);
+
+#test strsub_check
+	char s2[50] = "WOW";
+	ck_assert_str_eq(ft_strsub("WOWSER", 0, 3), s2);
