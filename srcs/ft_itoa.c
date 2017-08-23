@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 19:28:25 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/23 17:06:43 by mdeville         ###   ########.fr       */
+/*   Created: 2017/08/23 17:10:16 by mdeville          #+#    #+#             */
+/*   Updated: 2017/08/23 21:08:07 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char		*ft_itoa(int n)
 {
-	unsigned int	i;
-	unsigned int	begin;
-	unsigned int	end;
-	int				has_begun;
+	int		power;
+	int		i;
+	char	*res;
 
-	i = 0;
-	begin = 0;
-	end = 0;
-	has_begun = 0;
-	while (s[i])
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	res = (char *)malloc(sizeof(char) * 12);
+	if (!res)
+		return (NULL);
+	res[0] = (n < 0) ? '-' : 0;
+	i = (res[0] == '-') ? 1 : 0;
+	n = (res[0] == '-') ? -n : n;
+	power = 1;
+	while (n / power >= 10)
+		power *= 10;
+	while (n >= 10)
 	{
-		if (!has_begun && !IS_WS(s[i]))
-		{
-			begin = i;
-			has_begun = 1;
-		}
-		else if (has_begun && IS_WS(s[i]) && !IS_WS(s[i - 1]))
-			end = i;
-		i++;
+		res[i++] = n / 10 + '0';
+		n %= power;
+		power /= 10;
 	}
-	if (end == 0 && has_begun)
-		return (ft_strsub(s, begin, ft_strlen(s + begin)));
-	else
-		return (ft_strsub(s, begin, end - begin));
+	res[i++] = n + '0';
+	res[i] = '\0';
+	return (res);
 }
