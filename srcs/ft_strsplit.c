@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 20:59:38 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/27 23:10:40 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/08/29 17:53:56 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ static char		*ft_copy(char const *s, char c)
 	while (s[i] && s[i] != c)
 		i++;
 	res = (char *)malloc(sizeof(char) * (i + 1));
-	i = 0;
+	if (!res)
+		return (NULL);
+i = 0;
 	while (s[i] && s[i] != c)
 	{
 		res[i] = s[i];
