@@ -6,15 +6,15 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 20:59:38 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/23 21:30:49 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/08/27 23:10:40 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static char	*ft_copy(char const *s, char c)
+static char		*ft_copy(char const *s, char c)
 {
-	int		i;
+	size_t	i;
 	char	*res;
 
 	i = 0;
@@ -31,26 +31,26 @@ static char	*ft_copy(char const *s, char c)
 	return (res);
 }
 
-static int	nb_words(char const *s, char c)
+static size_t	nb_words(char const *s, char c)
 {
-	int		nb_words;
-	int		i;
+	size_t	cpt;
+	size_t	i;
 
-	nb_words = 0;
+	cpt = 0;
 	while (s[i])
 	{
 		if ((i == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c))
-			nb_words++;
+			cpt++;
 		i++;
 	}
-	return (nb_words);
+	return (cpt);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**res;
-	int		word;
-	int		i;
+	size_t	word;
+	size_t	i;
 
 	res = (char **)malloc(sizeof(char *) * (nb_words(s, c) + 1));
 	if (!res)

@@ -1,5 +1,6 @@
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 #test memset_check
 	char s1[25];
@@ -229,14 +230,6 @@
 	ck_assert_str_eq(ft_strtrim("   "), "");
 	ck_assert_str_eq(ft_strtrim("Bonjour  "), "Bonjour");
 	ck_assert_str_eq(ft_strtrim(""), "");
-
-#test strsplit_check
-	char s1[] = "Ceci est un test.";
-	char **res = ft_strsplit(s1, ' ');
-	ck_assert_str_eq(res[0], "Ceci");
-	ck_assert_str_eq(res[1], "est");
-	ck_assert_str_eq(res[2], "un");
-	ck_assert_str_eq(res[3], "test.");
 
 #test itoa_check
 	ck_assert_str_eq(ft_itoa(42), "42");
