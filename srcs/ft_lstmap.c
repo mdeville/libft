@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/29 19:01:57 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/29 22:37:01 by mdeville         ###   ########.fr       */
+/*   Created: 2017/08/30 13:15:25 by mdeville          #+#    #+#             */
+/*   Updated: 2017/08/30 14:17:11 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	if (!alst || !*alst || !del)
-		return ;
-	(*del)((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+	t_list	*res;
+	t_list	*prev;
+	t_list	*curr;
+
+	if (!lst || !f)
+		return (NULL);
+	res = (*f)(lst);
+	if (!res)
+		return (NULL);
+	prev = res;
+	lst = lst->next;
+	while (lst)
+	{
+		curr = (*f)(lst);
+		if (!curr)
+			return (NULL);
+		prev->next = curr;
+		prev = curr;
+		lst = lst->next;
+	}
+	return (res);
 }
