@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 15:15:22 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/20 17:42:03 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/06 18:11:24 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		}
 		i++;
 	}
-	return (NULL);
+	return ((!*needle) ? (char *)haystack : NULL);
 }

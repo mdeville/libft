@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 15:05:42 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/20 15:10:09 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/06 18:06:44 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strrchr(const char *s, int c)
 			last = (char *)s;
 		s++;
 	}
-	return (last);
+	return ((!c) ? (char *)s : last);
 }

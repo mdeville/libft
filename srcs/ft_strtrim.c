@@ -6,37 +6,51 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 19:28:25 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/23 17:06:43 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/06 21:48:30 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strtrim(char const *s)
+static size_t	ft_trimbegin(char const *s)
 {
-	unsigned int	i;
-	unsigned int	begin;
-	unsigned int	end;
-	int				has_begun;
+	size_t	i;
 
 	i = 0;
-	begin = 0;
-	end = 0;
-	has_begun = 0;
-	while (s[i])
-	{
-		if (!has_begun && !IS_WS(s[i]))
-		{
-			begin = i;
-			has_begun = 1;
-		}
-		else if (has_begun && IS_WS(s[i]) && !IS_WS(s[i - 1]))
-			end = i;
+	while (s[i] && IS_WS(s[i]))
 		i++;
-	}
-	if (end == 0 && has_begun)
-		return (ft_strsub(s, begin, ft_strlen(s + begin)));
-	else
-		return (ft_strsub(s, begin, end - begin));
+	return i;
+}
+
+static size_t	ft_trimend(char const *s)
+{
+	size_t	i;
+
+	i = ft_strlen(s);
+	while (i > 0 && IS_WS(s[i]))
+		i--;
+	return (i);
+}
+
+char			*ft_strtrim(char const *s)
+{
+	size_t	begin;
+	size_t	end;
+
+	if (!s)
+		return (NULL);
+	begin = ft_trimbegin(s);
+	end = ft_trimend(s);
+	if (end < begin)
+		return (ft_strdup(""));
+	return (ft_strsub(s, begin, end - begin));
+}
+
+int main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+	ft_putstr(ft_strtrim(argv[1]));
 }

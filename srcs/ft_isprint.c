@@ -6,11 +6,13 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 14:26:10 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/21 14:31:15 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/06 18:28:00 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_isprint(int c)
 {
-	return (c >= 32 && c < 177);
+	return (c >= 32 && c <= 126);
 }

@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 13:01:00 by mdeville          #+#    #+#             */
-/*   Updated: 2017/08/16 13:02:38 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/06 19:34:29 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-		ft_memset(s, 0, n);
+	ft_memset(s, 0, n);
 }
