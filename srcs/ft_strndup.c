@@ -6,7 +6,7 @@
 /*   By: mdeville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 19:50:20 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/07 20:04:45 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/07 20:31:00 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char	*ft_strndup(char const *s, size_t n)
 		res = (char *)malloc(sizeof(char) * (n + 1));
 	if (!res)
 		return (NULL);
+	i = 0;
 	while (n && i < len)
 	{
 		res[i] = s[i];
