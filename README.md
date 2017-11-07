@@ -1,3 +1,3 @@
 # libft
 
-Personnal implementation of GNU/libc
+Personnal implementation of GNU/libc @ 42

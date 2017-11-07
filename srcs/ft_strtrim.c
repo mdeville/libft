@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 19:28:25 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/07 00:38:54 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/07 17:33:31 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	ft_trimbegin(char const *s)
 	i = 0;
 	while (s[i] && IS_WS(s[i]))
 		i++;
-	return i;
+	return (i);
 }
 
 static size_t	ft_trimend(char const *s)
