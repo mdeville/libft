@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/08 16:31:31 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/08 17:37:01 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ void				ft_dlstadd_front(t_dlist **alst, t_dlist *new);
 void				ft_dlstadd_back(t_dlist **alst, t_dlist *new);
 void				ft_dlstdel_front(t_dlist **alst, void (*d)(void *, size_t));
 void				ft_dlstdel_back(t_dlist **alst, void (*d)(void *, size_t));
+void				ft_dlstdel(t_dlist **alst, void (*del)(void *, size_t));
 
 #endif
