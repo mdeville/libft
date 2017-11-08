@@ -27,7 +27,7 @@ OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
 
-%.o: $(SRCDIR)/%.c
+%.o: $(SRCDIR)/%.c libft.h
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $<
 
 $(NAME): $(OBJ)
