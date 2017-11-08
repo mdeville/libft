@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/08 15:05:27 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/08 16:31:31 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_dlist
+{
+	void			*content;
+	size_t			content_size;
+	struct s_dlist	*next;
+	struct s_dlist	*prev;
+}					t_dlist;
 
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
@@ -88,5 +96,10 @@ void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+t_dlist				*ft_dlstnew(char const *content, size_t content_size);
+void				ft_dlstadd_front(t_dlist **alst, t_dlist *new);
+void				ft_dlstadd_back(t_dlist **alst, t_dlist *new);
+void				ft_dlstdel_front(t_dlist **alst, void (*d)(void *, size_t));
+void				ft_dlstdel_back(t_dlist **alst, void (*d)(void *, size_t));
 
 #endif
