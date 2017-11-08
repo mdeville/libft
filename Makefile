@@ -1,6 +1,6 @@
 NAME=libft.a
 AR=ar
-ARFLAGS=rc
+ARFLAGS=rcs
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 LDLIB=-lcheck -lft
@@ -22,7 +22,7 @@ SRC=ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c	\
 	ft_lstpop.c ft_strndup.c ft_isblank.c ft_isnumber.c ft_islower.c\
 	ft_isupper.c ft_strtrimc.c ft_dlstnew.c ft_dlstadd_front.c		\
 	ft_dlstadd_back.c ft_dlstdel_back.c ft_dlstdel_front.c 			\
-	ft_dlstdel.c
+	ft_dlstdel.c ft_dlstdelone.c ft_rbnodenew.c
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
@@ -32,7 +32,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	@ranlib $(NAME)
 
 clean:
 	rm -f $(OBJ)

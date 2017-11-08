@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_rbnodenew.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdeville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/29 16:44:07 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/08 22:00:36 by mdeville         ###   ########.fr       */
+/*   Created: 2017/11/08 21:51:04 by mdeville          #+#    #+#             */
+/*   Updated: 2017/11/08 22:05:51 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-t_list		*ft_lstnew(void const *content, size_t content_size)
+t_rbnode	*ft_rbnodenew(void *content, size_t content_size)
 {
-	t_list	*new_elem;
+	t_rbnode *new_elem;
 
-	new_elem = (t_list *)malloc(sizeof(t_list));
+	new_elem = (t_rbnode *)malloc(sizeof(t_rbnode));
 	if (!new_elem)
 		return (NULL);
-	new_elem->content = (content) ? malloc(content_size) : NULL;
 	if (content)
 		ft_memcpy(new_elem->content, content, content_size);
 	new_elem->content_size = (content) ? content_size : 0;
-	new_elem->next = NULL;
+	new_elem->color = -1;
+	new_elem->left = NULL;
+	new_elem->right = NULL;
 	return (new_elem);
 }
