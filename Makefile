@@ -22,7 +22,8 @@ SRC=ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c	\
 	ft_lstpop.c ft_strndup.c ft_isblank.c ft_isnumber.c ft_islower.c\
 	ft_isupper.c ft_strtrimc.c ft_dlstnew.c ft_dlstappend.c			\
 	ft_dlstprepend.c ft_dlstdel_back.c ft_dlstdel_front.c			\
-	ft_dlstdel.c ft_dlstdelone.c ft_rbnodenew.c
+	ft_dlstdel.c ft_dlstdelone.c ft_rbnodenew.c ft_lstreverse.c		\
+	ft_lstfilter.c ft_dlstreverse.c ft_dlstfilter.c
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)

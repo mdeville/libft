@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/09 23:22:21 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/10 16:40:33 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <string.h>
 # define IS_WS(c) (c == ' ' || c == '\n' || c == '\t')
+
+enum				e_color {RED, BLACK, NONE};
 
 typedef struct		s_list
 {
@@ -33,7 +35,7 @@ typedef struct		s_dlist
 
 typedef struct		s_rbnode
 {
-	int				color;
+	enum e_color	color;
 	void			*content;
 	size_t			content_size;
 	struct s_rbnode	*left;
@@ -102,6 +104,11 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void				ft_lstreverse(t_list **alst);
+void				ft_lstfilter(
+								t_list **alst,
+								int (*p)(t_list *),
+								void (*del)(void *, size_t));
 
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
@@ -119,6 +126,12 @@ void				ft_dlstdel(t_dlist **alst, void (*del)(void *, size_t));
 void				ft_dlstdel_back(t_dlist **alst, void (*d)(void *, size_t));
 void				ft_dlstdel_front(t_dlist **alst, void (*d)(void *, size_t));
 void				ft_dlstdelone(t_dlist **alst, void (*del)(void *, size_t));
+void				ft_dlstreverse(t_dlist **alst);
+void				ft_dlstfilter(
+								t_dlist **alst,
+								int (*p)(t_dlist *),
+								void (*del)(void *, size_t));
+
 
 t_rbnode			*ft_rbnodenew(void *content, size_t content_size);
 
