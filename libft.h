@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/10 16:40:33 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/10 16:52:31 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,6 @@ void				ft_dlstfilter(
 								t_dlist **alst,
 								int (*p)(t_dlist *),
 								void (*del)(void *, size_t));
-
 
 t_rbnode			*ft_rbnodenew(void *content, size_t content_size);
 
