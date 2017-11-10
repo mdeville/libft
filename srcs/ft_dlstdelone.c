@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 19:01:57 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/08 16:44:18 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/10 00:23:52 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	ft_dlstdelone(t_dlist **alst, void (*del)(void *, size_t))
 		return ;
 	tmp = *alst;
 	(*del)(tmp->content, tmp->content_size);
-	tmp->prev->next = tmp->next;
-	tmp->next->prev = tmp->prev;
+	if (tmp->prev)
+		tmp->prev->next = tmp->next;
+	if (tmp->next)
+		tmp->next->prev = tmp->prev;
 	free(tmp);
 	*alst = NULL;
 }
