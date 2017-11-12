@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/12 22:32:17 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/13 00:13:59 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,10 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 int					ft_strcmp(const char *s1, const char *s2);
-int					ft_strequ(char const *s1, char const *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_strcasecmp(char const *s1, char const *s2);
+int					ft_strncasecmp(char const *s1, char const *s2, size_t n);
+int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_str_is_alpha(const char *str);
 int					ft_str_is_lowercase(const char *str);
