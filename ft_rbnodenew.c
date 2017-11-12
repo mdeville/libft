@@ -6,20 +6,26 @@
 /*   By: mdeville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 21:51:04 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/10 10:54:04 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/12 19:52:39 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-t_rbnode	*ft_rbnodenew(void *content, size_t content_size)
+t_rbnode	*ft_rbnodenew(void const *content, size_t content_size)
 {
 	t_rbnode *new_elem;
 
 	new_elem = (t_rbnode *)malloc(sizeof(t_rbnode));
 	if (!new_elem)
 		return (NULL);
+	new_elem->content = (content) ? malloc(sizeof(t_rbnode)) : NULL;
+	if (!new_elem->content)
+	{
+		free(new_elem);
+		return (NULL);
+	}
 	if (content)
 		ft_memcpy(new_elem->content, content, content_size);
 	new_elem->content_size = (content) ? content_size : 0;
