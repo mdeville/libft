@@ -6,7 +6,7 @@
 /*   By: mdeville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 21:51:04 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/12 19:52:39 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/12 20:10:17 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_rbnode	*ft_rbnodenew(void const *content, size_t content_size)
 	new_elem = (t_rbnode *)malloc(sizeof(t_rbnode));
 	if (!new_elem)
 		return (NULL);
-	new_elem->content = (content) ? malloc(sizeof(t_rbnode)) : NULL;
-	if (!new_elem->content)
+	new_elem->content = (content) ? malloc(content_size) : NULL;
+	if (content && !new_elem->content)
 	{
 		free(new_elem);
 		return (NULL);

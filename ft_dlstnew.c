@@ -6,7 +6,7 @@
 /*   By: mdeville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 15:11:29 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/12 19:49:02 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/12 20:09:50 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_dlist	*ft_dlstnew(char const *content, size_t content_size)
 	if (!new_elem)
 		return (NULL);
 	new_elem->content = (content) ? malloc(content_size) : NULL;
-	if (!new_elem->content)
+	if (content && !new_elem->content)
 	{
 		free(new_elem);
 		return (NULL);
