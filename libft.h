@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/12 15:15:07 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/12 19:49:46 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct		s_rbnode
 	struct s_rbnode	*right;
 }					t_rbnode;
 
-int					ft_memcmp(void *s1, void *s2, size_t n);
+int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memalloc(size_t size);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -132,6 +132,6 @@ void				ft_dlstfilter(
 								int (*p)(t_dlist *),
 								void (*del)(void *, size_t));
 
-t_rbnode			*ft_rbnodenew(void *content, size_t content_size);
+t_rbnode			*ft_rbnodenew(void const *content, size_t content_size);
 
 #endif

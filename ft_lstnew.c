@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 16:44:07 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/08 22:00:36 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/12 19:48:29 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 	if (!new_elem)
 		return (NULL);
 	new_elem->content = (content) ? malloc(content_size) : NULL;
+	if (!new_elem->content)
+	{
+		free(new_elem);
+		return (NULL);
+	}
 	if (content)
 		ft_memcpy(new_elem->content, content, content_size);
 	new_elem->content_size = (content) ? content_size : 0;
