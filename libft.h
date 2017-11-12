@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/12 19:49:46 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/12 22:32:17 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,22 @@ char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s1);
 char				*ft_strtrimc(char const *s1, char c);
-int					ft_strcmp(const char *s1, const char *s2);
-int					ft_strequ(char const *s1, char const *s2);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-int					ft_strnequ(char const *s1, char const *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *s);
 void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strequ(char const *s1, char const *s2);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_strnequ(char const *s1, char const *s2, size_t n);
+int					ft_str_is_alpha(const char *str);
+int					ft_str_is_lowercase(const char *str);
+int					ft_str_is_uppercase(const char *str);
+int					ft_str_is_numeric(const char *str);
+int					ft_str_is_printable(const char *str);
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -90,6 +96,10 @@ int					ft_islower(int c);
 int					ft_isnumber(int c);
 int					ft_isprint(int c);
 int					ft_isupper(int c);
+int					ft_isspace(int c);
+int					ft_iscntrl(int c);
+int					ft_isxdigit(int c);
+int					ft_isgraph(int c);
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);
