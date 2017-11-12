@@ -5,7 +5,6 @@ CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 LDLIB=-lft
 LDFLAGS=-L./
-SRCDIR=srcs
 INCLUDES=-I./
 HEADER=libft.h
 SRC=ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c	\
@@ -29,7 +28,7 @@ OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
 
-%.o: $(SRCDIR)/%.c $(HEADER)
+%.o: %.c $(HEADER)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $<
 
 $(NAME): $(OBJ)
