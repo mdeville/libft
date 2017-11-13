@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/13 00:13:59 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/13 14:26:28 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void				ft_memdel(void **ap);
 
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strcat(char *dest, const char *src);
+char				*ft_strcapitalize(char *str);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strdup(const char *s);
