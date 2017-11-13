@@ -6,22 +6,22 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 20:48:46 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/06 20:04:49 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/11/13 15:30:22 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
 	int	res;
 	int	neg;
 
 	res = 0;
 	neg = 1;
-	while ((*nptr > 8 && *nptr < 14) || *nptr == ' ')
-		nptr++;
-	neg = (*nptr == '-') ? -1 : 1;
-	nptr = (neg == -1 || *nptr == '+') ? nptr + 1 : nptr;
-	while (*nptr >= '0' && *nptr <= '9')
-		res = res * 10 + (*nptr++ - '0');
+	while ((*str > 8 && *str < 14) || *str == ' ')
+		str++;
+	neg = (*str == '-') ? -1 : 1;
+	str = (neg == -1 || *str == '+') ? str + 1 : str;
+	while (*str >= '0' && *str <= '9')
+		res = res * 10 + (*str++ - '0');
 	return (res * neg);
 }
