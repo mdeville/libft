@@ -1,4 +1,5 @@
 a.out
 *.o
+*~
 .DS_Store
 libft.a

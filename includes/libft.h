@@ -6,13 +6,14 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/11/13 19:33:08 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/12/15 13:55:39 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdint.h>
 # include <string.h>
 # define IS_WS(c) (c == ' ' || c == '\n' || c == '\t')
 
@@ -144,5 +145,7 @@ char				*ft_strtrim(char const *s);
 char				*ft_strtrimc(char const *s, char c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+char				*ft_utoa_base(uintmax_t n, const char *base);
+int					to_utf8(unsigned int c, char *utf8);
 
 #endif
