@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:12:49 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/18 17:07:36 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/12/18 18:42:21 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,23 @@
 #include "ft_printf.h"
 
 char		*g_optarg = NULL;
-int			g_optind = 0;
+int			g_optind = 1;
 int			g_opterr = 1;
 int			g_optopt = '?';
 
-static int	init_static(int argc, char *const argv[], char **index, char **exec)
+static int	init_static(int argc, char *const argv[], char **tmp)
 {
-	char *tmp;
-
-	tmp = *index;
-	if (!*exec)
-		*exec = *argv;
-	if (!*tmp)
+	if (!**tmp)
 	{
-		if (g_optind >= argc || *(tmp = argv[g_optind]) != '-')
+		if (g_optind >= argc || *(*tmp = argv[g_optind]) != '-')
 		{
-			tmp = "";
+			*tmp = "";
 			return (-1);
 		}
-		if (tmp[1] && *++tmp == '-')
+		if ((*tmp)[1] && *++(*tmp) == '-')
 		{
 			++g_optind;
-			tmp = "";
+			*tmp = "";
 			return (-1);
 		}
 	}
@@ -47,53 +42,49 @@ static char	need_arg(int argc,
 		char **tmp,
 		const char *opstring)
 {
-	char *index;
-
-	index = *tmp;
-	if (*index)
-		g_optarg = index;
+	if (**tmp)
+		g_optarg = *tmp;
 	else if (argc <= ++g_optind)
 	{
-		index = "";
+		*tmp = "";
 		if (*opstring == ':')
 			return (':');
 		if (g_opterr)
 			ft_fprintf(2,
-				"%s: option requires an argument -- %c\n", argv[0], g_optopt);
+					"%s: option requires an argument -- %c\n",
+					argv[0], g_optopt);
 		return ('?');
 	}
 	else
 		g_optarg = argv[g_optind];
-	index = "";
+	*tmp = "";
 	++g_optind;
-	return (-1);
+	return (g_optopt);
 }
 
 int			ft_getopt(int argc, char *const argv[], const char *opstring)
 {
+	static char	*place = "";
 	char		*oli;
-	static char	*index = "";
-	static char	*exec = NULL;
 
-	if (init_static(argc, argv, &index, &exec) == -1)
+	if (init_static(argc, argv, &place) == -1)
 		return (-1);
-	if ((g_optopt = *index++) == ':'
-			|| !(oli = strchr(opstring, g_optopt)))
+	if ((g_optopt = *place++) == ':' || !(oli = ft_strchr(opstring, g_optopt)))
 	{
 		if (g_optopt == '-')
 			return (-1);
-		if (!*index)
+		if (!*place)
 			++g_optind;
 		if (g_opterr && *opstring != ':')
-			ft_fprintf(2, "%s: illegal option -- %c\n", exec, g_optopt);
+			ft_fprintf(2, "%s: illegal option -- %c\n", argv[0], g_optopt);
 		return ('?');
 	}
 	if (*++oli != ':')
 	{
 		g_optarg = NULL;
-		if (!*index)
+		if (!*place)
 			++g_optind;
+		return (g_optopt);
 	}
-	return (((*oli = need_arg(argc, argv, &index, opstring)) != -1) ?
-			*oli : g_optopt);
+	return (need_arg(argc, argv, &place, opstring));
 }
