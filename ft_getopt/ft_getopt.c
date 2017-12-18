@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:12:49 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/18 18:42:21 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/12/18 18:47:19 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int			ft_getopt(int argc, char *const argv[], const char *opstring)
 
 	if (init_static(argc, argv, &place) == -1)
 		return (-1);
-	if ((g_optopt = *place++) == ':' || !(oli = ft_strchr(opstring, g_optopt)))
+	if ((g_optopt = *place++) == ':'
+		|| !(oli = ft_strchr(opstring, g_optopt)))
 	{
 		if (g_optopt == '-')
 			return (-1);
