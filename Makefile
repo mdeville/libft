@@ -37,7 +37,7 @@ FT_PRINTFSRC= $(addprefix $(FT_PRINTFDIR), \
 	ft_printpointer_fd.c ft_printunichar_fd.c ft_printn_fd.c ft_printitoa.c	\
 	print_token.c parse_token.c)
 
-SRC= $(FT_PRINTFSRC) $(LIBCSRC)
+SRC= $(FT_PRINTFSRC) $(LIBCSRC) ft_getopt/ft_getopt.c
 OBJ= $(SRC:.c=.o)
 
 all: $(NAME)
