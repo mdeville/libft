@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:12:49 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/18 17:04:16 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/12/18 17:07:36 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			g_optind = 0;
 int			g_opterr = 1;
 int			g_optopt = '?';
 
-int			init_static(int argc, char *const argv[], char **index, char **exec)
+static int	init_static(int argc, char *const argv[], char **index, char **exec)
 {
 	char *tmp;
 
@@ -42,7 +42,7 @@ int			init_static(int argc, char *const argv[], char **index, char **exec)
 	return (1);
 }
 
-char		need_arg(int argc,
+static char	need_arg(int argc,
 		char *const argv[],
 		char **tmp,
 		const char *opstring)
