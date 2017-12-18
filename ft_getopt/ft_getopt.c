@@ -6,12 +6,17 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:12:49 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/18 13:00:00 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/12/18 17:04:16 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_getopt.h"
 #include "ft_printf.h"
+
+char		*g_optarg = NULL;
+int			g_optind = 0;
+int			g_opterr = 1;
+int			g_optopt = '?';
 
 int			init_static(int argc, char *const argv[], char **index, char **exec)
 {
