@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/19 15:10:24 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/12/19 16:47:43 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct		s_rbnode
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
+char				*ft_basename(char *path);
 void				ft_dlstappend(t_dlist **alst, t_dlist *new);
 void				ft_dlstdel(t_dlist **alst, void (*del)(void *, size_t));
 void				ft_dlstdel_back(
