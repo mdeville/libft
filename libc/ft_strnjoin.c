@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:45:51 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/19 15:08:36 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/12/20 11:13:58 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char			*ft_strnjoin(size_t n, ...)
 	i = 0;
 	while (i < n && i < MAXARG)
 	{
-		strcat(res, bufarg[i]);
+		ft_strcat(res, bufarg[i]);
 		i += 1;
 	}
 	return (res);
