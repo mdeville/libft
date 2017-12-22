@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/18 15:15:44 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/22 15:08:51 by mdeville         ###   ########.fr       */
+/*   Created: 2017/12/22 15:11:00 by mdeville          #+#    #+#             */
+/*   Updated: 2017/12/22 15:14:28 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t len)
+size_t	ft_strnlen(const char *str, size_t n)
 {
-	size_t	i;
-	size_t	n;
+	size_t len;
 
-	i = 0;
-	n = ft_strlen(src);
-	while (i < len)
+	len = 0;
+	while (*str && len < n)
 	{
-		if (i < n)
-			dest[i] = src[i];
-		else
-			dest[i] = '\0';
-		i++;
+		len++;
+		str++;
 	}
-	return (dest);
+	return (len);
 }

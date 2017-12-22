@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_stpncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/18 15:15:44 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/22 15:08:51 by mdeville         ###   ########.fr       */
+/*   Created: 2017/12/22 15:09:07 by mdeville          #+#    #+#             */
+/*   Updated: 2017/12/22 15:16:49 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t len)
+char	*ft_stpncpy(char *dest, const char *src, size_t n)
 {
-	size_t	i;
-	size_t	n;
+	size_t size;
 
-	i = 0;
-	n = ft_strlen(src);
-	while (i < len)
-	{
-		if (i < n)
-			dest[i] = src[i];
-		else
-			dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	size = ft_strnlen(src, n);
+	ft_memcpy(dest, src, size);
+	dest += size;
+	if (size == n)
+		return (dest);
+	return (ft_memset(dest, '\0', n - size));
 }

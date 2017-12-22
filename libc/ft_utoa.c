@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/18 15:15:44 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/22 15:08:51 by mdeville         ###   ########.fr       */
+/*   Created: 2017/12/22 13:22:58 by mdeville          #+#    #+#             */
+/*   Updated: 2017/12/22 14:09:57 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t len)
+static int	nbrlen(unsigned int n)
 {
-	size_t	i;
-	size_t	n;
+	int cpt;
 
-	i = 0;
-	n = ft_strlen(src);
-	while (i < len)
+	cpt = 1;
+	while (n >= 10)
 	{
-		if (i < n)
-			dest[i] = src[i];
-		else
-			dest[i] = '\0';
-		i++;
+		n /= 10;
+		cpt += 1;
 	}
-	return (dest);
+	return (cpt);
+}
+
+char		*ft_utoa(unsigned int n)
+{
+	char	*res;
+	int		len;
+
+	len = nbrlen(n);
+	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	res[len--] = '\0';
+	while (n >= 10)
+	{
+		res[len--] = n % 10 + '0';
+		n /= 10;
+	}
+	res[len] = n + '0';
+	return (res);
 }
