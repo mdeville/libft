@@ -2,7 +2,7 @@ NAME=libft.a
 AR=ar
 ARFLAGS=rcs
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -fsanitize=address
+CFLAGS=-Wall -Wextra -Werror
 INCLUDES=-Iincludes/
 LIBCDIR= libc/
 FT_PRINTFDIR= ft_printf/
@@ -29,7 +29,8 @@ LIBCSRC= $(addprefix $(LIBCDIR), \
 	ft_str_is_lowercase.c ft_str_is_numeric.c ft_str_is_printable.c	\
 	ft_str_is_uppercase.c ft_strcasecmp.c ft_strncasecmp.c			\
 	ft_strcapitalize.c ft_atoimax.c ft_utoa_base.c to_utf8.c		\
-	ft_strnjoin.c ft_basename.c ft_utoa.c ft_strnlen.c ft_stpncpy.c)
+	ft_strnjoin.c ft_basename.c ft_utoa.c ft_strnlen.c ft_stpncpy.c	\
+	ft_isatty.c)
 
 FT_PRINTFSRC= $(addprefix $(FT_PRINTFDIR), \
 	ft_printf.c ft_fprintf.c ft_vprintf.c ft_vfprintf.c ft_printpercent_fd.c\

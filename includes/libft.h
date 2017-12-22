@@ -6,7 +6,7 @@
 /*   By: mdeville <mdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 21:13:01 by mdeville          #+#    #+#             */
-/*   Updated: 2017/12/22 15:19:24 by mdeville         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:33:46 by mdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,5 +152,6 @@ int					ft_toupper(int c);
 char				*ft_utoa_base(uintmax_t n, const char *base);
 char				*ft_utoa(unsigned int n);
 int					to_utf8(unsigned int c, char *utf8);
+int					ft_isatty(int fd);
 
 #endif
